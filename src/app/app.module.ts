@@ -3,16 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BooksComponent } from './books/books.component';
 
-@NgModule({
+@NgModule({ //decorator
   declarations: [
-    AppComponent
+    AppComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] //only on app.component
 })
 export class AppModule { }
