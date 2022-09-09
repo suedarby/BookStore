@@ -1,1 +1,12 @@
-<p>books works!</p>
+<h3>Books List!</h3>
+
+<button (click)="handleClick()" [disabled] ="isDisabled">Show Books</button>
+
+
+<ul>
+  <li>
+    <img [src]="src" [alt]="name" width="100px" >
+  <p>  {{ name }} by {{ author}}
+</p>
+  </li>
+</ul>
