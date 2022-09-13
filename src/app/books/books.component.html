@@ -1,12 +1,83 @@
 <h3>Books List!</h3>
-
+<!--
+<h6>click event</h6>
+<p> One way binding</p>
 <button (click)="handleClick()" [disabled] ="isDisabled">Show Books</button>
+<input type="text" (input)="handleInput($event)" >
+<p>{{ myName }}</p>
 
-
+<h6>Interpolation</h6>
 <ul>
   <li>
     <img [src]="src" [alt]="name" width="100px" >
   <p>  {{ name }} by {{ author}}
 </p>
+  </li>
+</ul>
+<p>=============</p>
+<p>Two way binding</p>
+
+<h6>click event</h6>
+<button (click)="handleClick()" [disabled] ="isDisabled">Show Books</button>
+<input type="text" [(ngModel)] ="mystuffName" />
+<p>{{ mystuffName }}</p>
+
+<h6>Interpolation</h6>
+<ul>
+  <li>
+    <img [src]="src" [alt]="name" width="100px" >
+  <p>  {{ name }} by {{ author}}
+</p>
+  </li>
+</ul> -->
+<!-- <p>=================</p>
+<p> ngIf</p>
+
+<button (click)="toggleBooks()">Show Books</button>
+
+<ul *ngIf="isShowing">
+  <li>
+    <img [src]="src" [alt]="name" width="100px" >
+  <p>  {{ name }} by {{ author}} </p>
+  </li>
+  <li>
+    <img [src]="src2" [alt]="name2" width="100px" >
+  <p>  {{ name2 }} by {{ author2 }} </p>
+  </li>
+</ul> -->
+<!-- <p>=================</p>
+<p> Short hand show/hide books</p>
+
+<button (click)="isShowing = !isShowing">
+ <span *ngIf = "!isShowing">Show Books</span>
+  <span *ngIf = "isShowing">Hide Books</span>
+</button>
+
+<ul *ngIf="isShowing">
+  <li>
+    <img [src]="src" [alt]="name" width="100px" >
+  <p>  {{ name }} by {{ author}} </p>
+  </li>
+  <li>
+    <img [src]="src2" [alt]="name2" width="100px" >
+  <p>  {{ name2 }} by {{ author2 }} </p>
+  </li>
+</ul> -->
+<p>=================</p>
+<p> ng-container Short hand show/hide books</p>
+
+<button (click)="isShowing = !isShowing">
+ <ng-container *ngIf = "!isShowing">Show Books</ng-container>
+  <ng-container *ngIf = "isShowing">Hide Books</ng-container>
+</button>
+
+<ul *ngIf="isShowing">
+  <li>
+    <img [src]="src" [alt]="name" width="100px" >
+  <p>  {{ name }} by {{ author}} </p>
+  </li>
+  <li>
+    <img [src]="src2" [alt]="name2" width="100px" >
+  <p>  {{ name2 }} by {{ author2 }} </p>
   </li>
 </ul>
