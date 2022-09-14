@@ -43,6 +43,11 @@ book : Book[] = [
 
 ]
 
+cart: Book[] = [];
+
+addToCart(book:Book){
+console.log(book)
+};
 //pipes
 
 
