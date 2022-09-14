@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from './../interface/book';
+// moved to book.ts as an interface
+// interface Book {
 
-interface Book {
+//   book: string,//whatever is here is the name of the array for ngFor
+//   author : string,
+//   image : string,
 
-  bookName: string,//whatever is here is the name of the array for ngFor
-  author : string,
-  image : string,
-
-}
+// }
 
 @Component({
   selector: 'app-books',
@@ -19,23 +20,23 @@ export class BooksComponent implements OnInit {
 //ngFor array
 //DOUBLE CHECK all the brackets
 //use this variable to do the bookName.author etc...
-bookName : Book[] = [
+book : Book[] = [
 
 {
-  bookName : 'test', //this should match the interface name list
+  book : 'test', //this should match the interface name list
   author :'test',
   image : 'https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg'
 },
 
 {
-  bookName: "outlander outlander outlander",
+  book: "outlander outlander outlander",
   author: "Dianna Gabaldon",
   image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg"
 
 },
 
 {
-  bookName: " outlander box set",
+  book: " outlander box set",
   author: "Dianna Gabaldon",
   image: "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg"
 }

@@ -127,20 +127,14 @@
 
 <p>=================</p>
 <p> parent to child</p>
+<p>adds sub module <em>book</em> to the <em>books</em> component inside the folder for books</p>
 
-
-
+<p>PARENT Books Component</p>
 <ul *ngIf="isShowing">
-  <ng-container *ngFor="let bookName of bookName; let i=index">
-  <li >
-
-    <img [src]="bookName.image" [alt]="bookName.bookName" width="100px" >
-
-  <p class="title">  {{ bookName.bookName | titlecase }} by {{ bookName.author | titlecase }} </p>
-
-  <button>Add to Cart</button>
-  </li>
-
+  <!-- <ng-container *ngFor="let Book of book; let i=index"> -->
+    <ng-container *ngFor="let singleBook of book" {...}>
+<!-- binding with [] -->
+<app-book [book]="singleBook"></app-book>
   </ng-container>
 
 </ul>
