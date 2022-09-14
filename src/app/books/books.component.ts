@@ -28,19 +28,23 @@ bookName : Book[] = [
 },
 
 {
-  bookName: "Outlander",
+  bookName: "outlander outlander outlander",
   author: "Dianna Gabaldon",
   image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg"
 
 },
 
 {
-  bookName: " box set",
+  bookName: " outlander box set",
   author: "Dianna Gabaldon",
   image: "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg"
 }
 
 ]
+
+//pipes
+
+
 
 constructor() { }
 

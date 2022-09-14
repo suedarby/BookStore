@@ -63,7 +63,7 @@
   <p>  {{ name2 }} by {{ author2 }} </p>
   </li>
 </ul> -->
-<p>=================</p>
+<!-- <p>=================</p>
 <p> ng-container Short hand show/hide books</p>
 
 <button (click)="isShowing = !isShowing">
@@ -81,4 +81,66 @@
   <p>  {{ bookName.bookName }} by {{ bookName.author}} </p>
   </li>
   </ng-container>
+</ul> -->
+
+<!-- <p>=================</p>
+<p> Pipes to transform upper/lower/title/camel case etc</p>
+
+<button (click)="isShowing = !isShowing">
+ <ng-container *ngIf = "!isShowing">Show Books</ng-container>
+  <ng-container *ngIf = "isShowing">Hide Books</ng-container>
+</button>
+
+<ul *ngIf="isShowing">
+  <ng-container *ngFor="let bookName of bookName; let i=index">
+  <li >
+  {{ i + 1}}
+
+  <img [src]="bookName.image" [alt]="bookName.bookName" width="100px" >
+  <p>  {{ bookName.bookName | titlecase }} by {{ bookName.author | titlecase }} </p>
+  </li>
+  </ng-container>
+</ul> -->
+<!-- <p>=================</p>
+<p> styles</p>
+
+<button (click)="isShowing = !isShowing">
+ <ng-container *ngIf = "!isShowing">Show Books</ng-container>
+  <ng-container *ngIf = "isShowing">Hide Books</ng-container>
+</button>
+
+<ul *ngIf="isShowing">
+  <ng-container *ngFor="let bookName of bookName; let i=index">
+  <li >
+
+    <p class="sno">  {{ i + 1}}</p>
+
+    <img [src]="bookName.image" [alt]="bookName.bookName" width="100px" >
+
+  <p class="title">  {{ bookName.bookName | titlecase }} by {{ bookName.author | titlecase }} </p>
+
+  </li>
+
+  </ng-container>
+
+</ul> -->
+
+<p>=================</p>
+<p> parent to child</p>
+
+
+
+<ul *ngIf="isShowing">
+  <ng-container *ngFor="let bookName of bookName; let i=index">
+  <li >
+
+    <img [src]="bookName.image" [alt]="bookName.bookName" width="100px" >
+
+  <p class="title">  {{ bookName.bookName | titlecase }} by {{ bookName.author | titlecase }} </p>
+
+  <button>Add to Cart</button>
+  </li>
+
+  </ng-container>
+
 </ul>
