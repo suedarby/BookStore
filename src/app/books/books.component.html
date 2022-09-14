@@ -71,13 +71,14 @@
   <ng-container *ngIf = "isShowing">Hide Books</ng-container>
 </button>
 
+<p>needs interface and array this is part of ngFor which will LOOP</p>
 <ul *ngIf="isShowing">
-  <li>
-    <img [src]="src" [alt]="name" width="100px" >
-  <p>  {{ name }} by {{ author}} </p>
+  <ng-container *ngFor="let bookName of bookName; let i=index">
+  <li >
+  {{ i + 1}}
+
+  <img [src]="bookName.image" [alt]="bookName.bookName" width="100px" >
+  <p>  {{ bookName.bookName }} by {{ bookName.author}} </p>
   </li>
-  <li>
-    <img [src]="src2" [alt]="name2" width="100px" >
-  <p>  {{ name2 }} by {{ author2 }} </p>
-  </li>
+  </ng-container>
 </ul>

@@ -1,22 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 
+interface Book {
+
+  bookName: string,//whatever is here is the name of the array for ngFor
+  author : string,
+  image : string,
+
+}
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
+
 export class BooksComponent implements OnInit {
 
+//ngFor array
+//DOUBLE CHECK all the brackets
+//use this variable to do the bookName.author etc...
+bookName : Book[] = [
+
+{
+  bookName : 'test', //this should match the interface name list
+  author :'test',
+  image : 'https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg'
+},
+
+{
+  bookName: "Outlander",
+  author: "Dianna Gabaldon",
+  image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg"
+
+},
+
+{
+  bookName: " box set",
+  author: "Dianna Gabaldon",
+  image: "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg"
+}
+
+]
+
+constructor() { }
+
+  ngOnInit(): void {
+  }
   // SHOWS THE STATIC VARIABLES
 
-name: string = "Outlander";
-author: string = "Dianna Gabaldon";
-src: string = "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg";
+// name: string = "Outlander";
+// author: string = "Dianna Gabaldon";
+// src: string = "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg";
 
 
-name2 : string = " box set";
-author2: string = "Dianna Gabaldon";
-src2: string = "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg";
+// name2 : string = " box set";
+// author2: string = "Dianna Gabaldon";
+// src2: string = "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg";
 
 // SETS A BUTTON TO FALSE
 // isDisabled: boolean = false;
@@ -46,12 +85,5 @@ isShowing = true;
 //   this.isShowing =!this.isShowing;
 // }
 
-
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
+;
