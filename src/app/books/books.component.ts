@@ -1,13 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Book } from './../interface/book';
-// moved to book.ts as an interface
-// interface Book {
 
-//   book: string,//whatever is here is the name of the array for ngFor
-//   author : string,
-//   image : string,
-
-// }
 
 @Component({
   selector: 'app-books',
@@ -15,7 +8,7 @@ import { Book } from './../interface/book';
   styleUrls: ['./books.component.css']
 })
 
-export class BooksComponent implements OnInit {
+export class BooksComponent implements OnInit, OnDestroy {
 
 //ngFor array
 //DOUBLE CHECK all the brackets
@@ -48,14 +41,33 @@ cart: Book[] = [];
 addToCart(book:Book){
 console.log(book)
 };
-//pipes
+//ngIf
+isShowing = true;
 
 
+constructor() {
+  console.log({constructor:'This is coming from the constructor first. Load API data here.'});
 
-constructor() { }
+}
 
   ngOnInit(): void {
+    console.log({onInit:'This comes from the onInIt function second'});
   }
+
+  ngOnDestroy(): void {
+      console.log({onDestroy:'This comes from the onDestroy function third'});
+  }
+
+};
+//older functions
+  // moved to book.ts as an interface
+// interface Book {
+
+//   book: string,//whatever is here is the name of the array for ngFor
+//   author : string,
+//   image : string,
+
+// }
   // SHOWS THE STATIC VARIABLES
 
 // name: string = "Outlander";
@@ -86,8 +98,7 @@ constructor() { }
 //two way binding
 // mystuffName: string = "";
 
-//ngIf
-isShowing = true;
+
 
 // if isShowing=true, then make it false and vice versa
 
@@ -95,5 +106,4 @@ isShowing = true;
 //   this.isShowing =!this.isShowing;
 // }
 
-}
-;
+
