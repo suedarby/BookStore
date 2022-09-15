@@ -24,7 +24,7 @@ constructor( private BooksService: BooksService ) {
 }
 
 
-  cart: Book[] = [];
+  // cart: Book[] = [];
 
   //ngIf
   isShowing = true;
@@ -37,9 +37,9 @@ constructor( private BooksService: BooksService ) {
         // console.log({onDestroy:'This comes from the onDestroy function third'});
     }
 
-    addToCart(book:Book){
+    // addToCart(book:Book){
       // console.log(book)
-      };
+      // };
 
   };
 //ngFor array

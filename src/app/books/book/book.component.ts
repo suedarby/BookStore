@@ -12,27 +12,24 @@ export class BookComponent implements OnInit, OnDestroy {
 
 @Input() book: Book = {} as Book;
 @Output () bookEmitter = new EventEmitter<Book>();
-
-myInterval: any = null;
+constructor(private cartService: CartService){}
+// myInterval: any = null;
 
 addToCart(){
-  // console.log(this.book);
-  this.bookEmitter.emit(this.book);
+// //   // console.log(this.book);
+this.cartService.add(this.book);
+  // this.bookEmitter.emit(this.book);
 }
 
-
-
-constructor() { }
-
   ngOnInit(): void {
-  this.myInterval = setInterval(() => {
-    console.log('Hello')
-      }, 1000)
+  // this.myInterval = setInterval(() => {
+  //   console.log('Hello')
+  //     }, 1000)
   }
 
 
   ngOnDestroy(): void {
-    console.log({onDestroy:'This comes from the onDestroy function third'});
+    // console.log({onDestroy:'This comes from the onDestroy function third'});
 }
 
 }
