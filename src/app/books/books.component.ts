@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Book } from './../interface/book';
+import { BooksService } from './books.service';
 
 
 @Component({
@@ -10,55 +11,63 @@ import { Book } from './../interface/book';
 
 export class BooksComponent implements OnInit, OnDestroy {
 
+  book : Book[] = [];
+
+//THIS is the DEPENDENCY INJECTION
+  // private booksService: BooksService);
+
+books: Book[] = [];
+
+
+constructor( private BooksService: BooksService ) {
+
+}
+
+
+  cart: Book[] = [];
+
+  //ngIf
+  isShowing = true;
+
+    ngOnInit(): void {
+    //  this.books = this.booksService.getBooks();
+      }
+
+    ngOnDestroy(): void {
+        // console.log({onDestroy:'This comes from the onDestroy function third'});
+    }
+
+    addToCart(book:Book){
+      // console.log(book)
+      };
+
+  };
 //ngFor array
 //DOUBLE CHECK all the brackets
 //use this variable to do the bookName.author etc...
-book : Book[] = [
+// book : Book[] = [
 
-{
-  book : 'test', //this should match the interface name list
-  author :'test',
-  image : 'https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg'
-},
+// {
+//   book : 'test', //this should match the interface name list
+//   author :'test',
+//   image : 'https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg'
+// },
 
-{
-  book: "outlander outlander outlander",
-  author: "Dianna Gabaldon",
-  image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg"
+// {
+//   book: "outlander outlander outlander",
+//   author: "Dianna Gabaldon",
+//   image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg"
 
-},
+// },
 
-{
-  book: " outlander box set",
-  author: "Dianna Gabaldon",
-  image: "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg"
-}
+// {
+//   book: " outlander box set",
+//   author: "Dianna Gabaldon",
+//   image: "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg"
+// }
 
-]
+// ]
 
-cart: Book[] = [];
-
-addToCart(book:Book){
-console.log(book)
-};
-//ngIf
-isShowing = true;
-
-
-constructor() {
-  console.log({constructor:'This is coming from the constructor first. Load API data here.'});
-
-}
-
-  ngOnInit(): void {
-    console.log({onInit:'This comes from the onInIt function second'});
-  }
-
-  ngOnDestroy(): void {
-      console.log({onDestroy:'This comes from the onDestroy function third'});
-  }
-
-};
 //older functions
   // moved to book.ts as an interface
 // interface Book {

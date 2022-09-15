@@ -32,7 +32,7 @@ constructor() { }
 
 
   ngOnDestroy(): void {
-    // console.log({onDestroy:'This comes from the onDestroy function third'});
+    console.log({onDestroy:'This comes from the onDestroy function third'});
 }
 
 }
