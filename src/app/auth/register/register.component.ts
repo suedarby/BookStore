@@ -1,15 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { RegisterForm } from 'src/app/types/auth';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  form: RegisterForm = {
+    email: '',
+    password: '',
+    confirm_password: '',
+  };
 
-  constructor() { }
+  passwordMatched: boolean = true;
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  submit() {
+    if (this.form.password !== this.form.confirm_password) {
+      this.passwordMatched = false;
+      return;
+    }
+
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, this.form.email, this.form.password)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   }
-
 }
