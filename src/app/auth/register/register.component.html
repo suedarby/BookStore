@@ -24,7 +24,6 @@
           class="p-2 text-red-800 bg-red-300 rounded">
           Password field must be valid
       </div>
-
       <div class="w-full my-5">
           <label for="confirm_password">Confirm Password</label>
           <input type="text" id="confirm_password"
@@ -39,7 +38,15 @@
       </div>
 
       <div class="w-full my-5">
-          <input type="submit" [disabled]="myForm.form.invalid"
-              class="w-full p-2 text-white bg-yellow-700 rounded cursor-pointer hover:bg-yellow-900">
+          <button type="submit" [disabled]="myForm.form.invalid"
+              class="w-full p-2 text-white bg-purple-700 rounded hover:bg-purple-900">
+              <ng-container *ngIf="isLoading">
+                  Loading...
+              </ng-container>
+              <ng-container *ngIf="!isLoading">
+                  Submit
+              </ng-container>
+          </button>
       </div>
   </form>
+</div>
