@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 import { LoginForm, RegisterForm } from '../types/auth';
 
@@ -12,19 +14,17 @@ import { LoginForm, RegisterForm } from '../types/auth';
 export class AuthService {
   isAuthenticated: boolean = false;
   isLoading: boolean = false;
-  authService: any;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   login(form: LoginForm) {
     if (this.isLoading) return;
-
     this.isLoading = true;
-
     const auth = getAuth();
     signInWithEmailAndPassword(auth, form.email, form.password)
       .then((userCredential) => {
         this.isAuthenticated = true;
+        this.router.navigate(['']);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -33,18 +33,14 @@ export class AuthService {
       })
       .finally(() => (this.isLoading = false));
   }
-
   passwordMatched: boolean = true;
   register(form: RegisterForm) {
     if (this.isLoading) return;
-
     this.isLoading = true;
-
     if (form.password !== form.confirm_password) {
       this.passwordMatched = false;
       return;
     }
-
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, form.email, form.password)
       .then((userCredential) => {
@@ -59,8 +55,14 @@ export class AuthService {
   }
 
   logout() {
-    this.authService.logout();
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        this.router.navigate(['login']);
+        this.isAuthenticated = false;
+      })
+      .catch((error) => {
+        // An error happened.
+      });
   }
 }
-
-

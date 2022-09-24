@@ -24,18 +24,16 @@
           class="p-2 text-red-800 bg-red-300 rounded">
           Password field must be valid
       </div>
-
       <div class="w-full my-5">
           <button type="submit" [disabled]="myForm.form.invalid"
               class="w-full p-2 text-white bg-purple-700 rounded hover:bg-purple-900">
-              <ng-container *ngIf="isLoading">
+              <ng-container *ngIf="isLoading()">
                   Loading...
               </ng-container>
-              <ng-container *ngIf="!isLoading">
+              <ng-container *ngIf="!isLoading()">
                   Submit
               </ng-container>
           </button>
-
       </div>
   </form>
 </div>
