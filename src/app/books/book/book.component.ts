@@ -1,35 +1,29 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { from } from 'rxjs';
-import { Book } from '../../interface/book';
+import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
+import { Book } from 'src/app/types/book';
+
 
 @Component({
+
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  styleUrls: ['./book.component.css'],
 })
+export class BookComponent implements OnInit {
+  @Input() book: Book = {} as Book;
+  isInCart: boolean = false;
 
-export class BookComponent implements OnInit, OnDestroy {
+  constructor(private cartService: CartService) {}
 
-@Input() book: Book = {} as Book;
-@Output () bookEmitter = new EventEmitter<Book>();
-constructor(private cartService: CartService){}
-// myInterval: any = null;
+  ngOnInit(): void {}
 
-addToCart(){
-// //   // console.log(this.book);
-this.cartService.add(this.book);
-  // this.bookEmitter.emit(this.book);
-}
-
-  ngOnInit(): void {
-  // this.myInterval = setInterval(() => {
-  //   console.log('Hello')
-  //     }, 1000)
+  addToCart() {
+    this.isInCart = true;
+    this.cartService.add(this.book);
   }
 
-
-  ngOnDestroy(): void {
-    // console.log({onDestroy:'This comes from the onDestroy function third'});
-}
-
+  removeFromCart() {
+    this.isInCart = false;
+    this.cartService.remove(this.book);
+  }
 }

@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
-
-@Component({ //decorator
+import { Component, OnInit } from '@angular/core';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from './firebase.config';
+@Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
 })
-//class
-export class AppComponent {
-  title = 'Book Store';
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    initializeApp(firebaseConfig);
+  }
 }

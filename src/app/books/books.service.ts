@@ -4,44 +4,37 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class BooksService {
-constructor() { }
+  constructor() {}
 
-getBooks() {
-
-  return [
-
+  getBooks() {
+    return [
       {
-        book : 'test', //this should match the interface name list
-        author :'test',
-        image : 'https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg'
+        name: 'clean code',
+        author: 'robert c martin',
+        image:
+          'https://images-na.ssl-images-amazon.com/images/I/41zoxjP9lcL._SX323_BO1,204,203,200_.jpg',
+        amount: 700,
       },
-
       {
-        book: "outlander outlander outlander",
-        author: "Dianna Gabaldon",
-        image: "https://m.media-amazon.com/images/W/WEBP_402378-T2/images/I/51PrW27sXWL.jpg"
-
+        name: 'pragmatic programmer',
+        author: 'david thomas',
+        image: 'https://m.media-amazon.com/images/I/518FqJvR9aL.jpg',
+        amount: 800,
       },
-
       {
-        book: " outlander box set",
-        author: "Dianna Gabaldon",
-        image: "https://images-na.ssl-images-amazon.com/images/I/51DE28Tk9qL._SY498_BO1,204,203,200_.jpg"
-      }
-
-      ]
+        name: 'Art of Computer Programming',
+        author: 'Donald John Fuller',
+        image:
+          'https://images-na.ssl-images-amazon.com/images/I/41gCSRxxVeL._SY429_BO1,204,203,200_.jpg',
+        amount: 18300,
+      },
+      {
+        name: 'Introduction to Algorithms',
+        author: 'T Cormen',
+        image:
+          'https://images-na.ssl-images-amazon.com/images/I/41VndKVtiXL._SX442_BO1,204,203,200_.jpg',
+        amount: 1500,
+      },
+    ];
+  }
 }
-}
-
-
-//used to hold the single tasks that can be segregated from the component itself
-// the ngIf behind the scenes  or the ngFor or the cart functions
-//can be shared among ALL the components by input/output and export/import via injectible services to a component
-//the crud calls to the database? sorting? filters?
-
-
-
-
-
-
-
